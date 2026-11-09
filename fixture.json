@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "user": "demo-user",
+      "time": 100,
+      "result": "failure"
+    },
+    {
+      "user": "demo-user",
+      "time": 110,
+      "result": "failure"
+    },
+    {
+      "user": "demo-user",
+      "time": 125,
+      "result": "failure"
+    },
+    {
+      "user": "demo-user",
+      "time": 140,
+      "result": "success"
+    }
+  ]
+}
