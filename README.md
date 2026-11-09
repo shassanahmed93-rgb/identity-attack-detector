@@ -27,3 +27,9 @@ Open `index.html` in a modern browser or run `node test.mjs` with Node.js 20+. T
 ## Scope
 
 Synthetic lab inputs and deterministic rules. Review results before applying them to a real incident.
+
+## What this demonstrates
+
+**Correlate authentication events within a five-minute window.** Compare a failure cluster followed by a success with the same sequence outside the detection window. This is a per-account signal. Investigate MFA, device, and source before escalation.
+
+[Reference guidance](https://attack.mitre.org/techniques/T1110/)

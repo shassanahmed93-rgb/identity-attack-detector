@@ -23,7 +23,7 @@
       &quot;result&quot;: &quot;success&quot;
     }
   ]
-}</textarea><div class="actions"><button id="run">Run lab</button><button class="secondary" id="reset">Reset fixture</button></div></div><div class="card"><h2>Evidence output</h2><pre id="output" aria-live="polite"></pre><div class="actions"><button class="secondary" id="save">Download JSON</button></div></div></section></main><script>
+}</textarea><div class="actions"><button id="run">Run lab</button><button class="secondary" id="reset">Reset fixture</button><button class="secondary" id="compare">Load comparison</button></div></div><div class="card"><h2>Evidence output</h2><pre id="output" aria-live="polite"></pre><div class="actions"><button class="secondary" id="save">Download JSON</button></div></div></section><section class="card" style="margin-top:18px"><p class="tag">What this demonstrates</p><h2>Correlate authentication events within a five-minute window</h2><p>Compare a failure cluster followed by a success with the same sequence outside the detection window. This is a per-account signal. Investigate MFA, device, and source before escalation.</p><a href="https://attack.mitre.org/techniques/T1110/">Reference guidance</a></section></main><script>
 "use strict";
 function analyze(input) {
   const failures = new Map();
@@ -54,6 +54,7 @@ function run() {
   document.getElementById("save").disabled = report === undefined;
 }
 document.getElementById("run").onclick = run;
+document.getElementById("compare").onclick = () => { input.value = "{\n  \"events\": [\n    {\n      \"user\": \"demo-user\",\n      \"time\": 1,\n      \"result\": \"failure\"\n    },\n    {\n      \"user\": \"demo-user\",\n      \"time\": 2,\n      \"result\": \"failure\"\n    },\n    {\n      \"user\": \"demo-user\",\n      \"time\": 3,\n      \"result\": \"failure\"\n    },\n    {\n      \"user\": \"demo-user\",\n      \"time\": 400,\n      \"result\": \"success\"\n    }\n  ]\n}"; run(); };
 document.getElementById("reset").onclick = () => { input.value = fixture; run(); };
 document.getElementById("save").onclick = () => {
   if (report === undefined) return;
